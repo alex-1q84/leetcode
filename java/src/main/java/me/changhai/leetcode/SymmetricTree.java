@@ -1,3 +1,5 @@
+package me.changhai.leetcode;
+
 import java.util.*;
 
 /**
@@ -10,7 +12,7 @@ class TreeNode {
     TreeNode(int x) { val = x; }
 }
 
-public class Solution {
+public class SymmetricTree {
     /**
      *      1
      *     / \
@@ -30,9 +32,9 @@ public class Solution {
      *  OJ's Binary Tree Serialization
      *  {1,2,3,#,#,4,#,#,5}
      */
-    public serializeToOJList(TreeNode root) {
+    public List<String> serializeToOJList(TreeNode root) {
         ArrayList<String> flattenNodesVal = new ArrayList<String>();
-        flattenNodesVal.add(String.valuOf(root.val));
+        flattenNodesVal.add(String.valueOf(root.val));
         if(root.left == null){
             flattenNodesVal.add("#");
         }
@@ -40,9 +42,11 @@ public class Solution {
             flattenNodesVal.add("#");
         }
 
+        return null;
     }
 
     public boolean isSymmetric(TreeNode root) {
-        
+
+        return false;
     }
 }

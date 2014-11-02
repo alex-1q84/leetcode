@@ -5,7 +5,7 @@ __author__ = 'mywo'
 from leetcode.CountAndSay import *
 
 
-class TestSolution(TestCase):
+class TestSoulution(TestCase):
     def test_countAndSay_1(self):
         solution = Solution()
         self.assertEqual("1", solution.countAndSay(1))
