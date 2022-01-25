@@ -6,7 +6,7 @@ class Solution:
         """
         if not strs:
             return ""
-        
+
         def common_prefix(str_a, str_b):
             global i
             for i, c in enumerate(str_a):
