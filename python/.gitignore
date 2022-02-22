@@ -1,5 +1,9 @@
+venv
 *.pyc
 dist
 MANIFEST
 .ropeproject
 .idea
+.vscode
+.iml
+.target
