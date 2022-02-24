@@ -16,4 +16,20 @@ class Solution:
             max_sum = max(max_sum, f_n)
         return max_sum
 
+
+    def maxSubArray2(self, nums: List[int]) -> int:
+        # 假设sum<=0，那么后面的子序列肯定不包含目前的子序列，
+        # 所以令sum = num，如果sum > 0对于后面的子序列是有好处的。
+        # res = max(res, sum)保证可以找到最大的子序和。
+        res = nums[0]
+        sum = 0
+        for n in nums:
+            if sum > 0:
+                sum = sum + n
+            else:
+                sum = n
+            res = max(res, sum)
+        return res
+
 print(Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+print(Solution().maxSubArray2([-2,1,-3,4,-1,2,1,-5,4]))
