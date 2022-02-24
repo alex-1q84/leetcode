@@ -12,14 +12,16 @@ from typing import List
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        checked_nums = set()
-        for i, n in enumerate(numbers):
-            if n in checked_nums:
-                continue
+        # 双指针分别指向数组低位和高位
+        # 检查两个位置数字之和，如果大于目标值则高位向低位移动 1 个位置，
+        # 如果和小于目标值则低位向高位移动一个位置
+        # 否则说明和刚好与目标值相等，返回低位和高位
+        low, high = 0, len(numbers) - 1
+        while low < high:
+            sum = numbers[low] + numbers[high]
+            if sum == target:
+                return [low + 1, high + 1]
+            elif sum > target:
+                high -= 1
             else:
-                checked_nums.add(n)
-            for k, m in enumerate(numbers[i + 1:]):
-                if n + m == target:
-                    return [i + 1, k + 1 + i + 1]
-                if m > target:
-                    break
+                low += 1
