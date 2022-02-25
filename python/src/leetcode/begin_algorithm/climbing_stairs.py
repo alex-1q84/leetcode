@@ -16,3 +16,14 @@ class Solution:
             return n
         else:
             return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+
+
+    def climbStairs_iter(self, n: int) -> int:
+        if n <= 2:
+            return n
+        i1, i2 = 1, 2
+        result = 0
+        for n in range(3, n+1):
+            result = i1 + i2
+            i1, i2 = i2, result
+        return result
