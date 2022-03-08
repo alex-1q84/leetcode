@@ -8,20 +8,17 @@ from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        def _rob(i):
-            if i == 0:
-                return nums[i]
-            elif i == 1:
-                return max(nums[0], nums[1])
-            else:
-                return max(_rob(i-1), _rob(i-2) + nums[i])
+        length = len(nums)
+        if length <= 0:
+            return 0 if length == 0 else nums[0]
+        # 把递归思路改成记忆化
+        memo = []
+        memo.append(nums[0])
+        memo.append(max(memo[0], nums[1]))
 
-        if len(nums) < 2:
-            return _rob(len(nums)-1)
+        for i in range(2, length):
+            memo.append(max(memo[i-1], memo[i-2] + nums[i]))
 
-        result = 0
-        for i in range(2, len(nums)):
-            result = max(result, _rob(i))
-        return result
+        return memo[length-1]
 
 print(Solution().rob([183,219,57,193,94,233,202,154,65,240,97,234,100,249,186,66,90,238,168,128,177,235,50,81,185,165,217,207,88,80,112,78,135,62,228,247,211]))
