@@ -9,7 +9,7 @@ from typing import List
 class Solution:
     def rob(self, nums: List[int]) -> int:
         length = len(nums)
-        if length <= 0:
+        if length <= 1:
             return 0 if length == 0 else nums[0]
         # 把递归思路改成记忆化
         memo = []
